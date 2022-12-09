@@ -7,18 +7,20 @@ import com.mongodb.MongoCredential;
 
 public class ConnectToDB {
 	public static void main( String args[] ) {  
+		CreateDB cobj = new CreateDB();
+    	String database_name = cobj.givedbname();
 	      
 	      // Creating a Mongo client 
 	      MongoClient mongo = new MongoClient( "localhost" , 27017 ); 
 	   
 	      // Creating Credentials 
 	      MongoCredential credential; 
-	      credential = MongoCredential.createCredential("sampleUser", "myDb", 
+	      credential = MongoCredential.createCredential("sampleUser", database_name, 
 	         "password".toCharArray()); 
 	      System.out.println("Connected to the database successfully");  
 	      
 	      // Accessing the database 
-	      MongoDatabase database = mongo.getDatabase("myDb"); 
+	      MongoDatabase database = mongo.getDatabase(database_name); 
 	      System.out.println("Credentials ::"+ credential);     
 	   } 
 }

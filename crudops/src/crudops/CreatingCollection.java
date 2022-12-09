@@ -6,6 +6,7 @@ import com.mongodb.MongoCredential;
 public class CreatingCollection {
 
     public static void main( String args[] ) {  
+   
       
         // Creating a Mongo client 
         MongoClient mongo = new MongoClient( "localhost" , 27017 ); 
