@@ -11,23 +11,29 @@ import com.mongodb.MongoCredential;
 public class DeletingDocuments { 
    
    public static void main( String args[] ) {  
+      CreateDB cd = new CreateDB();
+      String dbname = cd.givedbname("database");
+      String collectionname = cd.givedbname("collection");
+      String[] keyval = cd.document();
+      String key = keyval[0];
+      String val = keyval[1];
    
       // Creating a Mongo client 
       MongoClient mongo = new MongoClient( "localhost" , 27017 );
       
       // Creating Credentials 
       MongoCredential credential; 
-      credential = MongoCredential.createCredential("sampleUser", "myDb", 
+      credential = MongoCredential.createCredential("sampleUser",dbname, 
          "password".toCharArray()); 
       System.out.println("Connected to the database successfully");  
       
       // Accessing the database 
-      MongoDatabase database = mongo.getDatabase("myDb"); 
+      MongoDatabase database = mongo.getDatabase(dbname); 
       // Retrieving a collection
-      MongoCollection<Document> collection = database.getCollection("sampleCollection");
+      MongoCollection<Document> collection = database.getCollection(collectionname);
       System.out.println("Collection sampleCollection selected successfully"); 
       // Deleting the documents 
-      collection.deleteOne(Filters.eq("title", "MongoDB")); 
+      collection.deleteOne(Filters.eq(key,val)); 
       System.out.println("Document deleted successfully...");  
       
       // Retrieving the documents after updation 
