@@ -6,9 +6,6 @@ import org.bson.Document;
 import com.mongodb.MongoClient;
 public class InsertingDocument {
 	public static void main( String args[] ) {
-	CreateDB cbobj = new CreateDB();
-	String dbname = cbobj.givedbname("databse");
-	String collectionname = cbobj.givedbname("collection");
 	String[] documentname = cbobj.document();
 	String key = documentname[0];
 	String value = documentname[0];
@@ -25,9 +22,11 @@ public class InsertingDocument {
 	// Retrieving a collection
 	MongoCollection<Document> collection = database.getCollection(collectionname);
 	System.out.println("Collection sampleCollection selected successfully");
-	Document document = new Document(key,value);
+	Document document = new Document();
+	document.append(key, value);
+
 	//Inserting document into the collection
 	collection.insertOne(document);
 	System.out.println("Document inserted successfully");
 }
-}
+}   

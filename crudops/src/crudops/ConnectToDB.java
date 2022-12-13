@@ -8,7 +8,7 @@ import com.mongodb.MongoCredential;
 public class ConnectToDB {
 	public static void main( String args[] ) {  
 		CreateDB cobj = new CreateDB();
-    	String database_name = cobj.givedbname();
+    	String database_name = cobj.givedbname("database");
 	      
 	      // Creating a Mongo client 
 	      MongoClient mongo = new MongoClient( "localhost" , 27017 ); 
