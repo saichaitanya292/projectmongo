@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class CreateDB {
 
+
+
+
 public String givedbname(String instance)
 {
     Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -20,6 +23,7 @@ public String givedbname(String instance)
 
 public String[] document()
 {
+
 
     Scanner myObj = new Scanner(System.in);  // Create a Scanner object
     System.out.println("Enter Key");
