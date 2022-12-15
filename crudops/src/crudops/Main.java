@@ -13,9 +13,15 @@ public class Main {
         switch (choice) {
             case "1":
                 System.out.println("Create Db");
+                ConnectToDB sdb = new ConnectToDB();
+                System.out.println("calling connectdb");
+                sdb.connecttodb();
+
                 break;
             case "2":
                 System.out.println("Create Collection");
+                CreatingCollection cc = new CreatingCollection();
+                cc.createcollection();
                 break;
             case "3":
                 System.out.println("Update Collection");

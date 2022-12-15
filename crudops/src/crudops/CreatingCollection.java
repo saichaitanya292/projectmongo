@@ -5,7 +5,7 @@ import com.mongodb.MongoCredential;
 
 public class CreatingCollection {
 
-    public static void main( String args[] ) {  
+    public static void createcollection() {  
        CreateDB db = new CreateDB();
        String dbname = db.givedbname("database");
        String collection = db.givedbname("collection");

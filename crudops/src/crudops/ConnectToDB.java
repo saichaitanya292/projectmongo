@@ -6,7 +6,7 @@ import com.mongodb.MongoCredential;
 
 
 public class ConnectToDB {
-	public static void main( String args[] ) {  
+	public static void connecttodb() {  
 		CreateDB cobj = new CreateDB();
     	String database_name = cobj.givedbname("database");
 	      
