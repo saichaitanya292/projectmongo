@@ -12,7 +12,8 @@ public class Main {
         System.out.println(choice);
         switch (choice) {
             case "1":
-                System.out.println("Create Db");
+      
+              System.out.println("Create Db");
                 ConnectToDB sdb = new ConnectToDB();
                 System.out.println("calling connectdb");
                 sdb.connecttodb();
@@ -25,6 +26,8 @@ public class Main {
                 break;
             case "3":
                 System.out.println("Update Collection");
+                UpdatingDocuments ud = new UpdatingDocuments();
+                ud.updatedoc();
                 break;
             case "4":
                 System.out.println("Delete collection");

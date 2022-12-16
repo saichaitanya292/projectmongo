@@ -11,23 +11,29 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;  
 public class UpdatingDocuments { 
    
-   public static void main( String args[] ) {  
+   public static void updatedoc() {
+      CreateDB db = new CreateDB();
+      String dbname = db.givedbname("database");
+      String collectionname = db.givedbname("collection");
+      String[] a = db.document();
+      System.out.println("values to be updated");
+      String[] b = db.document();
       
       // Creating a Mongo client 
       MongoClient mongo = new MongoClient( "localhost" , 27017 ); 
      
       // Creating Credentials 
       MongoCredential credential; 
-      credential = MongoCredential.createCredential("sampleUser", "myDb", 
+      credential = MongoCredential.createCredential("sampleUser", dbname, 
          "password".toCharArray()); 
       System.out.println("Connected to the database successfully");  
       
       // Accessing the database 
-      MongoDatabase database = mongo.getDatabase("myDb"); 
+      MongoDatabase database = mongo.getDatabase(dbname); 
       // Retrieving a collection 
-      MongoCollection<Document> collection = database.getCollection("sampleCollection");
+      MongoCollection<Document> collection = database.getCollection(collectionname);
       System.out.println("Collection myCollection selected successfully"); 
-      collection.updateOne(Filters.eq("title", "MongoDB"), Updates.set("likes", 400));       
+      collection.updateOne(Filters.eq(a[0],a[1]), Updates.set(b[0],b[1]));       
       System.out.println("Document update successfully...");  
       
       // Retrieving the documents after updation 
