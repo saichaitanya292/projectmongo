@@ -31,6 +31,9 @@ public class Main {
                 break;
             case "4":
                 System.out.println("Delete collection");
+                DropingCollection dc = new DropingCollection();
+                dc.dropcollection();
+            
                 break;
             case "5":
                 System.out.println("Open collection");
