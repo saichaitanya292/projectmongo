@@ -1,5 +1,8 @@
 package crudops;
-import com.mongodb.client.MongoDatabase; 
+import com.mongodb.client.MongoDatabase;
+
+import org.bson.Document;
+
 import com.mongodb.MongoClient; 
 import com.mongodb.MongoCredential; 
 
@@ -9,9 +12,10 @@ public class CreatingCollection {
        CreateDB db = new CreateDB();
        String dbname = db.givedbname("database");
        String collection = db.givedbname("collection");
+       String[] a = db.document();
+       String key = a[0];
+       String value = a[1];
 
-   
-      
         // Creating a Mongo client 
         MongoClient mongo = new MongoClient( "localhost" , 27017 ); 
        
@@ -25,6 +29,8 @@ public class CreatingCollection {
         
         //Creating a collection 
         database.createCollection(collection);
+        Document document = new Document();
+        document.append(key, value);
         System.out.println("Collection created successfully"); 
      } 
     

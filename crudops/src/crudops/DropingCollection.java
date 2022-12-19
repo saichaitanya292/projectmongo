@@ -28,7 +28,7 @@ public class DropingCollection {
       // Retrieving a collection
       MongoCollection<Document> collection = database.getCollection(collectionname);
       // Dropping a Collection 
-      collection.drop(); 
+      collection.drop();
       System.out.println("Collection dropped successfully");
    } 
 }

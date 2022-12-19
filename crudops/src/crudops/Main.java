@@ -33,16 +33,13 @@ public class Main {
                 System.out.println("Delete collection");
                 DropingCollection dc = new DropingCollection();
                 dc.dropcollection();
-            
                 break;
             case "5":
                 System.out.println("Open collection");
+                ListOfCollection s = new ListOfCollection();
+                s.lc();
                 break;
-
         }
-       
-
-
     }
     
 }
