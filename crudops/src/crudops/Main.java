@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Please choose the operation");
-        System.out.println("1.Create DB\n2.Create Collection\n3.Update collection\n4.Delete collection\n5.Open collection");
+        System.out.println("1.Create DB\n2.Create Collection\n3.Update collection\n4.Delete collection\n5.Open collection\n6.Delete Document");
         Scanner scan1 = new Scanner(System.in);
         String choice = scan1.nextLine();  // Read user input
         System.out.println("Performing operation");
@@ -38,6 +38,11 @@ public class Main {
                 System.out.println("Open collection");
                 ListOfCollection s = new ListOfCollection();
                 s.lc();
+                break;
+            case "6":
+                System.out.println("Delete Document");
+                DeletingDocuments dd = new DeletingDocuments();
+                dd.deletedoc();
                 break;
         }
     }

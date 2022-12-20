@@ -10,7 +10,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;  
 public class DeletingDocuments { 
    
-   public static void main( String args[] ) {  
+   public static void deletedoc() {  
       CreateDB cd = new CreateDB();
       String dbname = cd.givedbname("database");
       String collectionname = cd.givedbname("collection");
