@@ -15,7 +15,6 @@ public class Main {
       
               System.out.println("Create Db");
                 ConnectToDB sdb = new ConnectToDB();
-                System.out.println("calling connectdb");
                 sdb.connecttodb();
 
                 break;
@@ -35,7 +34,7 @@ public class Main {
                 dc.dropcollection();
                 break;
             case "5":
-                System.out.println("Open collection");
+                System.out.println("View collections in db");
                 ListOfCollection s = new ListOfCollection();
                 s.lc();
                 break;
