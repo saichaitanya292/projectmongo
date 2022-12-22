@@ -1,5 +1,9 @@
 package crudops;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+
+import java.util.Iterator;
 
 import org.bson.Document;
 
@@ -11,7 +15,7 @@ public class CreatingCollection {
     public static void createcollection() {  
        CreateDB db = new CreateDB();
        String dbname = db.givedbname("database");
-       String collection = db.givedbname("collection");
+       String collectionname = db.givedbname("collection");
        String[] a = db.document();
        String key = a[0];
        String value = a[1];
@@ -28,10 +32,19 @@ public class CreatingCollection {
         MongoDatabase database = mongo.getDatabase(dbname);  
         
         //Creating a collection 
-        database.createCollection(collection);
+        database.createCollection(collectionname);
         Document document = new Document();
         document.append(key, value);
         System.out.println("Collection created successfully"); 
+
+      System.out.println("retrive the added collection");
+      MongoCollection<Document> collection = database.getCollection(collectionname);
+      //Retrieving the documents
+      FindIterable<Document> iterDoc = collection.find();
+      Iterator it = iterDoc.iterator();
+      while (it.hasNext()) {
+         System.out.println(it.next());
+      }
      } 
     
 }

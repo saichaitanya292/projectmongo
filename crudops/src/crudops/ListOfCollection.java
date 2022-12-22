@@ -1,6 +1,10 @@
 package crudops;
 
-import com.mongodb.client.MongoDatabase; 
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoDatabase;
+
+import org.bson.Document;
+
 import com.mongodb.MongoClient; 
 import com.mongodb.MongoCredential;  
 public class ListOfCollection { 
@@ -24,5 +28,7 @@ public class ListOfCollection {
          System.out.println("collections");
          System.out.println("collections"+ " " +name); 
       } 
+
+      
    }
 } 
