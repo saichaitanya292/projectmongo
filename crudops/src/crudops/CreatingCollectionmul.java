@@ -10,15 +10,13 @@ import org.bson.Document;
 import com.mongodb.MongoClient; 
 import com.mongodb.MongoCredential; 
 
-public class CreatingCollection {
+public class CreatingCollectionmul {
 
     public static void createcollection() {  
        CreateDB db = new CreateDB();
        String dbname = db.givedbname("database");
        String collectionname = db.givedbname("collection");
-       String[] a = db.document();
-       String key = a[0];
-       String value = a[1];
+      String[][] kvp = db.documentmul();
 
         // Creating a Mongo client 
         MongoClient mongo = new MongoClient( "localhost" , 27017 ); 
@@ -34,8 +32,12 @@ public class CreatingCollection {
         //Creating a collection 
         database.createCollection(collectionname);
         Document document = new Document();
-        
-        document.append(key, value);
+        for(int i =0;i<kvp.length;i++)
+    {
+      
+        document.append(kvp[i][0], kvp[i][1]);
+    }
+       
         System.out.println("Collection created successfully"); 
 
       System.out.println("retrive the added collection");
