@@ -23,7 +23,7 @@ public class CreatingCollectionmul {
        
         // Creating Credentials 
         MongoCredential credential; 
-        credential = MongoCredential.createCredential("sampleUser",dbname , 
+        credential = MongoCredential.createCredential("sampleUser","abc123" , 
            "password".toCharArray()); 
         System.out.println("Connected to the database successfully");  
         //Accessing the database 
@@ -43,6 +43,7 @@ public class CreatingCollectionmul {
       System.out.println("retrive the added collection");
       MongoCollection<Document> collection = database.getCollection(collectionname);
       //Retrieving the documents
+      collection.insertOne(document);
       FindIterable<Document> iterDoc = collection.find();
       Iterator it = iterDoc.iterator();
       while (it.hasNext()) {
