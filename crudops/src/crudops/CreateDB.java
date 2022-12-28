@@ -60,6 +60,10 @@ public String[][] documentmul()
     return valuesmul;
 
     }
+
+
+
+
 public static void main(String[] args) {
     CreateDB cdb = new CreateDB();
     cdb.documentmul();
