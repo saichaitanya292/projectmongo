@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Please choose the operation");
-        System.out.println("1.Create DB\n2.Create Collection\n3.Update collection\n4.Delete collection\n5.Open collection\n6.Delete Document\n7.Insert multiple key value");
+        System.out.println("1.Create DB\n2.Create Collection\n3.Update collection\n4.Delete collection\n5.Open collection\n6.Delete Document\n7.Insert multiple key value\n8.Insertmuldocuments");
         Scanner scan1 = new Scanner(System.in);
         String choice = scan1.nextLine();  // Read user input
         System.out.println("Performing operation");
@@ -48,7 +48,13 @@ public class Main {
                 CreatingCollectionmul cm = new CreatingCollectionmul();
                 cm.createcollection();
                 break;
-        }
+            case "8":
+                System.out.println("Insert multiple key value");
+                InsertingMultipleDocuments imd = new InsertingMultipleDocuments();
+                imd.insertmuldoc();
+                break;
+            
+            }
     }
     
 }

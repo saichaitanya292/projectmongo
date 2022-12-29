@@ -4,10 +4,13 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import org.bson.Document;
 import com.mongodb.MongoClient;
 public class InsertingMultipleDocuments {
-   public static void main( String args[] ) {
+
+   public void insertmuldoc() {
       //Creating a MongoDB client
       MongoClient mongo = new MongoClient( "localhost" , 27017 );
       //Connecting to the database
@@ -15,15 +18,32 @@ public class InsertingMultipleDocuments {
       //Creating a collection object
       MongoCollection<Document> collection =
       database.getCollection("sampleCollection");
-      Document document1 = new Document("name", "Ram").append("age", 26).append("city", "Hyderabad");
-      Document document2 = new Document("name", "Robert").append("age", 27).append("city", "Vishakhapatnam");
-      Document document3 = new Document("name", "Rhim").append("age", 30).append("city", "Delhi");
-      //Inserting the created documents
       List<Document> list = new ArrayList<Document>();
-      list.add(document1);
-      list.add(document2);
-      list.add(document3);
+      System.out.println("please enter number of documents");
+      Scanner ndk = new Scanner(System.in);
+      int nd = ndk.nextInt();
+      for(int i=0;i<nd;i++)
+      {
+         Document document4 = new Document();
+         System.out.println("please enter number of key value pairs");
+         Scanner kv = new Scanner(System.in);
+         int nkv = kv.nextInt();
+
+         for(int j=0;j<nkv;j++)
+         {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("please enter key value pairs");
+            String k1 = scan.nextLine();
+            String v1 = scan.nextLine();
+            document4.append(k1,v1);
+         }
+         
+         list.add(document4);
+      }
+      
       collection.insertMany(list);
       System.out.println("Documents Inserted");
    }
+
+   
 }
