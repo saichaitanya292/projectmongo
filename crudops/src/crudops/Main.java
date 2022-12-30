@@ -49,7 +49,7 @@ public class Main {
                 cm.createcollection();
                 break;
             case "8":
-                System.out.println("Insert multiple key value");
+                System.out.println("Insert multiple documents");
                 InsertingMultipleDocuments imd = new InsertingMultipleDocuments();
                 imd.insertmuldoc();
                 break;

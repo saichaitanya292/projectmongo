@@ -3,6 +3,7 @@ package crudops;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,12 +13,15 @@ public class InsertingMultipleDocuments {
 
    public void insertmuldoc() {
       //Creating a MongoDB client
+      CreateDB cd = new CreateDB();
+      String dbname = cd.givedbname("database");
+      String collectionname = cd.givedbname("collection");
       MongoClient mongo = new MongoClient( "localhost" , 27017 );
       //Connecting to the database
-      MongoDatabase database = mongo.getDatabase("myDatabase");
+      MongoDatabase database = mongo.getDatabase(dbname);
       //Creating a collection object
       MongoCollection<Document> collection =
-      database.getCollection("sampleCollection");
+      database.getCollection(collectionname);
       List<Document> list = new ArrayList<Document>();
       System.out.println("please enter number of documents");
       Scanner ndk = new Scanner(System.in);
@@ -43,6 +47,14 @@ public class InsertingMultipleDocuments {
       
       collection.insertMany(list);
       System.out.println("Documents Inserted");
+      com.mongodb.client.FindIterable<Document> iterDoc = collection.find();
+		int i = 1;
+		// Getting the iterator
+		Iterator it = iterDoc.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
+			i++;
+		}
    }
 
    
