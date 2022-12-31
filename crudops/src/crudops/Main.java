@@ -12,11 +12,9 @@ public class Main {
         System.out.println(choice);
         switch (choice) {
             case "1":
-      
-              System.out.println("Create Db");
+                System.out.println("Create Db");
                 ConnectToDB sdb = new ConnectToDB();
                 sdb.connecttodb();
-
                 break;
             case "2":
                 System.out.println("Create Collection");
